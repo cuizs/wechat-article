@@ -31,7 +31,25 @@ def extract_digest(md_text: str) -> str:
     return text[:120]
 
 
+def auto_link_urls_in_markdown(md_text: str) -> str:
+    """
+    Convert bare URLs in markdown text to clickable markdown links.
+    Example: https://example.com -> [https://example.com](https://example.com)
+    """
+    url_pattern = re.compile(r"(?<!\]\()(?P<url>https?://[^\s<]+)")
+    trailing_punct = ".,;:!?)，。；：！）】》」』"
+
+    def repl(match: re.Match) -> str:
+        url = match.group("url")
+        clean = url.rstrip(trailing_punct)
+        suffix = url[len(clean):]
+        return f"[{clean}]({clean}){suffix}"
+
+    return url_pattern.sub(repl, md_text)
+
+
 def markdown_to_wechat_html(md_text: str) -> str:
+    md_text = auto_link_urls_in_markdown(md_text)
     html = markdown.markdown(md_text, extensions=["extra", "sane_lists", "tables", "nl2br"])
     # Remove first H1 to avoid title duplication in WeChat article page.
     html = re.sub(r"^\s*<h1>.*?</h1>\s*", "", html, count=1, flags=re.DOTALL)
