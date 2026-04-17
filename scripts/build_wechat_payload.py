@@ -43,15 +43,15 @@ def apply_wechat_inline_style(html: str) -> str:
     replacements = [
         (
             r"<h2>",
-            '<h2 style="font-size:22px;line-height:1.5;margin:30px 0 14px;color:#0f3d66;border-bottom:2px solid #e6edf7;padding-bottom:8px;">',
+            '<h2 style="font-size:22px;line-height:1.5;margin:30px 0 14px;color:#0f3d66;border-bottom:2px solid #e6edf7;padding-bottom:8px;text-align:left;letter-spacing:0;">',
         ),
         (
             r"<h3>",
-            '<h3 style="font-size:18px;line-height:1.6;margin:22px 0 10px;color:#0f4f85;">',
+            '<h3 style="font-size:18px;line-height:1.6;margin:22px 0 10px;color:#0f4f85;text-align:left;letter-spacing:0;">',
         ),
         (
             r"<p>",
-            '<p style="font-size:16px;line-height:1.8;color:#1f2937;margin:12px 0;">',
+            '<p style="font-size:16px;line-height:1.8;color:#1f2937;margin:12px 0;text-align:left;letter-spacing:0;">',
         ),
         (
             r"<ul>",
@@ -63,7 +63,7 @@ def apply_wechat_inline_style(html: str) -> str:
         ),
         (
             r"<li>",
-            '<li style="font-size:16px;line-height:1.8;color:#1f2937;margin:6px 0;">',
+            '<li style="font-size:16px;line-height:1.8;color:#1f2937;margin:6px 0;text-align:left;letter-spacing:0;">',
         ),
         (
             r"<blockquote>",
@@ -100,7 +100,7 @@ def apply_wechat_inline_style(html: str) -> str:
 
     wrapped = (
         '<section style="font-family:PingFangSC-Regular, PingFang SC, Microsoft YaHei, Arial, sans-serif;'
-        'font-size:16px;line-height:1.8;color:#1f2937;word-break:break-word;">'
+        'font-size:16px;line-height:1.8;color:#1f2937;word-break:break-word;text-align:left;letter-spacing:0;">'
         + html
         + "</section>"
     )
