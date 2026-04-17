@@ -36,7 +36,10 @@ def auto_link_urls_in_markdown(md_text: str) -> str:
     Convert bare URLs in markdown text to clickable markdown links.
     Example: https://example.com -> [https://example.com](https://example.com)
     """
-    url_pattern = re.compile(r"(?<!\]\()(?P<url>https?://[^\s<]+)")
+    # Restrict URL charset to avoid swallowing Chinese punctuation/text and adjacent labels.
+    url_pattern = re.compile(
+        r"(?<!\]\()(?P<url>https?://[A-Za-z0-9\-._~:/?#\[\]@!$&'()*+,;=%]+)"
+    )
     trailing_punct = ".,;:!?)，。；：！）】》」』"
 
     def repl(match: re.Match) -> str:
@@ -46,6 +49,12 @@ def auto_link_urls_in_markdown(md_text: str) -> str:
         return f"[{clean}]({clean}){suffix}"
 
     return url_pattern.sub(repl, md_text)
+
+
+def extract_first_url(md_text: str) -> str:
+    pattern = re.compile(r"https?://[A-Za-z0-9\-._~:/?#\[\]@!$&'()*+,;=%]+")
+    m = pattern.search(md_text)
+    return m.group(0) if m else ""
 
 
 def markdown_to_wechat_html(md_text: str) -> str:
@@ -141,6 +150,7 @@ def main() -> None:
     title = extract_title(md_text)
     digest = extract_digest(md_text)
     content = markdown_to_wechat_html(md_text)
+    content_source_url = args.content_source_url or extract_first_url(md_text)
 
     payload = {
         "articles": [
@@ -149,7 +159,7 @@ def main() -> None:
                 "author": args.author,
                 "digest": digest,
                 "content": content,
-                "content_source_url": args.content_source_url,
+                "content_source_url": content_source_url,
                 "thumb_media_id": args.thumb_media_id,
                 "need_open_comment": args.need_open_comment,
                 "only_fans_can_comment": args.only_fans_can_comment,
