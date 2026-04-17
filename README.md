@@ -131,3 +131,9 @@ python scripts/render_week_report.py --input output/week_report.md --output outp
 - `output/wechat_weekly_时间戳/`
 
 其中包含 markdown、html、微信接口响应、最终 payload，便于审计与复盘。
+
+说明（重要）：
+
+- 微信公众号会清洗 `<style>`、`class`、外链样式和部分复杂标签。
+- 本项目发布到公众号时使用 `scripts/build_wechat_payload.py` 生成“内联样式 HTML”，而不是直接复用 `templates/week_report.html` 的页面样式。
+- 若你修改了网页模板样式，公众号端不会自动等效；需要同步调整 `build_wechat_payload.py` 中的内联样式规则。

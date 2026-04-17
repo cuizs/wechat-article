@@ -35,7 +35,76 @@ def markdown_to_wechat_html(md_text: str) -> str:
     html = markdown.markdown(md_text, extensions=["extra", "sane_lists", "tables", "nl2br"])
     # Remove first H1 to avoid title duplication in WeChat article page.
     html = re.sub(r"^\s*<h1>.*?</h1>\s*", "", html, count=1, flags=re.DOTALL)
-    return html
+    return apply_wechat_inline_style(html)
+
+
+def apply_wechat_inline_style(html: str) -> str:
+    """Apply WeChat-friendly inline styles. WeChat strips <style>/class aggressively."""
+    replacements = [
+        (
+            r"<h2>",
+            '<h2 style="font-size:22px;line-height:1.5;margin:30px 0 14px;color:#0f3d66;border-bottom:2px solid #e6edf7;padding-bottom:8px;">',
+        ),
+        (
+            r"<h3>",
+            '<h3 style="font-size:18px;line-height:1.6;margin:22px 0 10px;color:#0f4f85;">',
+        ),
+        (
+            r"<p>",
+            '<p style="font-size:16px;line-height:1.8;color:#1f2937;margin:12px 0;">',
+        ),
+        (
+            r"<ul>",
+            '<ul style="margin:10px 0 14px 0;padding-left:22px;">',
+        ),
+        (
+            r"<ol>",
+            '<ol style="margin:10px 0 14px 0;padding-left:22px;">',
+        ),
+        (
+            r"<li>",
+            '<li style="font-size:16px;line-height:1.8;color:#1f2937;margin:6px 0;">',
+        ),
+        (
+            r"<blockquote>",
+            '<blockquote style="margin:16px 0;padding:12px 14px;border-left:4px solid #0f766e;background:#f0fdfa;color:#134e4a;">',
+        ),
+        (
+            r"<hr\s*/?>",
+            '<hr style="border:none;border-top:1px dashed #cbd5e1;margin:24px 0;" />',
+        ),
+        (
+            r"<table>",
+            '<table style="border-collapse:collapse;width:100%;margin:14px 0;">',
+        ),
+        (
+            r"<th>",
+            '<th style="border:1px solid #d1d5db;padding:8px;background:#f8fafc;font-size:14px;color:#334155;">',
+        ),
+        (
+            r"<td>",
+            '<td style="border:1px solid #d1d5db;padding:8px;font-size:14px;color:#334155;">',
+        ),
+        (
+            r"<a\s+href=",
+            '<a style="color:#0f5f9f;text-decoration:underline;" href=',
+        ),
+        (
+            r"<strong>",
+            '<strong style="color:#0b395e;">',
+        ),
+    ]
+
+    for pattern, repl in replacements:
+        html = re.sub(pattern, repl, html, flags=re.IGNORECASE)
+
+    wrapped = (
+        '<section style="font-family:PingFangSC-Regular, PingFang SC, Microsoft YaHei, Arial, sans-serif;'
+        'font-size:16px;line-height:1.8;color:#1f2937;word-break:break-word;">'
+        + html
+        + "</section>"
+    )
+    return wrapped
 
 
 def main() -> None:
