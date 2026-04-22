@@ -5,25 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{TITLE}}</title>
   <style>
-    :root {
-      --bg: #f3f6fb;
-      --paper: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --brand: #0f3d66;
-      --accent: #0f766e;
-      --note: #eef6ff;
-      --warn: #fff7ed;
-    }
-
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background: radial-gradient(circle at top right, #dbeafe 0%, var(--bg) 42%);
-      color: var(--text);
+      background: #f5f7f9;
       font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-      line-height: 1.82;
+      color: #3e3e3e;
     }
 
     .container {
@@ -33,16 +20,16 @@
     }
 
     .article {
-      background: var(--paper);
-      border: 1px solid #dbe2ec;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
       border-radius: 18px;
-      box-shadow: 0 16px 50px rgba(15, 61, 102, 0.08);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.06);
       overflow: hidden;
     }
 
     .hero {
-      padding: 34px 40px 26px;
-      background: linear-gradient(130deg, #0f3d66 0%, #134e7f 65%, #0f766e 100%);
+      padding: 30px 40px 22px;
+      background: linear-gradient(130deg, #009688 0%, #00a9a5 90%);
       color: #fff;
     }
 
@@ -71,97 +58,115 @@
       opacity: .92;
     }
 
-    .content {
+    #nice {
       padding: 30px 40px 40px;
+      font-family: "Optima-Regular", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      word-break: break-all;
+    }
+
+    #nice p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      line-height: 26px;
+      word-spacing: 3px;
+      letter-spacing: 3px;
+      text-align: justify;
+      color: #3e3e3e;
       font-size: 16px;
+      text-indent: 2em;
     }
 
-    .content h2 {
-      margin-top: 30px;
-      margin-bottom: 14px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #e6edf7;
-      color: var(--brand);
-      font-size: 24px;
-      line-height: 1.4;
+    #nice h1 {
+      font-size: 1.8em;
+      color: #009688;
+      margin: 1.2em auto;
+      text-align: center;
+      border-bottom: 1px solid #009688;
     }
 
-    .content h3 {
-      margin-top: 24px;
-      margin-bottom: 10px;
-      color: #0f4f85;
-      font-size: 19px;
+    #nice h2 {
+      color: #009688;
+      padding-left: 10px;
+      margin: 1em auto;
+      border-left: 3px solid #009688;
     }
 
-    .content p {
-      margin: 12px 0;
-      color: var(--text);
+    #nice h3 {
+      margin: 0.6em auto;
+      padding-left: 10px;
+      border-left: 2px solid #009688;
     }
 
-    .content ul, .content ol {
-      margin: 10px 0 14px;
-      padding-left: 24px;
+    #nice h4 {
+      margin: 0.6em auto;
+      font-size: 1.2em;
+      padding-left: 10px;
+      border-left: 2px dashed #009688;
     }
 
-    .content li {
-      margin: 6px 0;
+    #nice h5 {
+      margin: 0.6em auto;
+      font-size: 1.1em;
+      padding-left: 10px;
+      border-left: 1px dashed #009688;
     }
 
-    .content strong {
-      color: #0b395e;
+    #nice h6 {
+      margin: 0.6em auto;
+      font-size: 1em;
+      padding-left: 10px;
+      border-left: 1px dotted #009688;
     }
 
-    .content a {
-      color: #0f5f9f;
+    #nice blockquote {
+      border-left: 2px solid #888;
+      border-right: 2px solid #888;
+      padding-left: 1em;
+      color: #777;
+    }
+
+    #nice a {
+      color: #009688;
+      border-bottom: 1px solid #009688;
       text-decoration: none;
-      border-bottom: 1px solid rgba(15, 95, 159, .28);
     }
 
-    .content blockquote {
-      margin: 16px 0;
-      padding: 14px 16px;
-      border-left: 4px solid var(--accent);
-      background: #f0fdfa;
-      border-radius: 8px;
-      color: #134e4a;
+    #nice hr {
+      margin: 20px 0;
     }
 
-    .content hr {
-      border: none;
-      border-top: 1px dashed #cbd5e1;
-      margin: 24px 0;
+    #nice p code, #nice li code {
+      color: #009688;
     }
 
-    .content h2 + p {
-      background: var(--note);
-      padding: 12px 14px;
-      border: 1px solid #dbeafe;
-      border-radius: 10px;
+    #nice table tr th {
+      border: 1px solid #009688;
+      background-color: #009688;
+      color: #f8f8f8;
+      border-bottom: 0;
+      padding: 5px 10px;
     }
 
-    .content h2:nth-of-type(4) + h3 + ul,
-    .content h2:nth-of-type(4) + h3 + ul + h3 + ul {
-      background: var(--warn);
-      border: 1px solid #fed7aa;
-      border-radius: 10px;
-      padding: 10px 14px 10px 28px;
+    #nice table tr td {
+      border: 1px solid #009688;
+      padding: 5px 10px;
     }
 
-    .footer-note {
-      margin-top: 30px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
+    #nice table tr:nth-child(2n) {
+      background-color: #f8f8f8;
     }
 
     @media (max-width: 768px) {
       .container { margin: 18px auto 28px; }
       .hero { padding: 24px 20px 20px; }
       .hero h1 { font-size: 25px; }
-      .content { padding: 22px 20px 26px; font-size: 15px; }
-      .content h2 { font-size: 21px; }
-      .content h3 { font-size: 18px; }
+      #nice { padding: 22px 20px 26px; }
+      #nice p {
+        font-size: 15px;
+        line-height: 24px;
+        letter-spacing: 1px;
+        word-spacing: 1px;
+      }
     }
   </style>
 </head>
@@ -173,7 +178,7 @@
         <h1>{{TITLE}}</h1>
         <div class="meta">生成时间：{{GENERATED_AT}}</div>
       </header>
-      <section class="content">
+      <section id="nice">
         {{CONTENT}}
       </section>
     </article>

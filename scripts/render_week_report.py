@@ -25,6 +25,8 @@ def build_html(md_text: str, template_path: Path) -> str:
         md_text,
         extensions=["extra", "sane_lists", "tables", "nl2br", "toc"],
     )
+    # Remove first H1 to avoid duplicating with the template hero title.
+    html_content = re.sub(r"^\s*<h1[^>]*>.*?</h1>\s*", "", html_content, count=1, flags=re.DOTALL)
 
     template = template_path.read_text(encoding="utf-8")
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
