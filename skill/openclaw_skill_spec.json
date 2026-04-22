@@ -1,0 +1,97 @@
+{
+  "name": "wechat-weekly-pipeline",
+  "description": "生成行业周报、可选插图、写入微信公众号草稿并可发布",
+  "entrypoint": "scripts/run_weekly_wechat_pipeline.sh",
+  "inputs": {
+    "mode": {
+      "type": "string",
+      "required": false,
+      "default": "draft",
+      "enum": ["draft", "publish"],
+      "description": "仅草稿或草稿后自动发布"
+    },
+    "date_range": {
+      "type": "string",
+      "required": false,
+      "description": "格式 YYYY-MM-DD,YYYY-MM-DD"
+    },
+    "task_extra": {
+      "type": "string",
+      "required": false,
+      "description": "附加写作要求"
+    },
+    "force_generate": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "llm_provider": {
+      "type": "string",
+      "required": false,
+      "default": "openclaw",
+      "description": "chat 模型提供方，建议 openclaw"
+    },
+    "llm_model": {
+      "type": "string",
+      "required": false,
+      "description": "chat 模型名"
+    },
+    "illustration_enabled": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "illustration_provider": {
+      "type": "string",
+      "required": false,
+      "default": "openclaw",
+      "description": "图片模型提供方"
+    },
+    "illustration_model": {
+      "type": "string",
+      "required": false,
+      "description": "图片模型名"
+    },
+    "illustration_count": {
+      "type": "number",
+      "required": false,
+      "default": 3
+    },
+    "illustration_style": {
+      "type": "string",
+      "required": false,
+      "default": "专业医疗行业资讯插图，克制、简洁、无品牌标识、无疗效暗示"
+    }
+  },
+  "secrets": [
+    "LLM_API_KEY",
+    "LLM_BASE_URL",
+    "TAVILY_API_KEY",
+    "ILLUSTRATION_API_KEY",
+    "ILLUSTRATION_BASE_URL",
+    "WECHAT_APPID",
+    "WECHAT_APPSECRET",
+    "WECHAT_THUMB_MEDIA_ID",
+    "WECHAT_COVER_IMAGE"
+  ],
+  "command_template": "./scripts/run_weekly_wechat_pipeline.sh --mode {{mode}} {{#date_range}}--range {{date_range}}{{/date_range}} {{#task_extra}}--task-extra \"{{task_extra}}\"{{/task_extra}} {{#force_generate}}--force-generate{{/force_generate}} --illustration-enabled {{illustration_enabled}} --illustration-provider {{illustration_provider}} --illustration-model {{illustration_model}} --illustration-count {{illustration_count}} --illustration-style \"{{illustration_style}}\"",
+  "outputs": {
+    "status": "success|failed",
+    "draft_media_id": "string",
+    "publish_id": "string",
+    "article_id": "string",
+    "artifacts": {
+      "markdown": "path",
+      "html": "path",
+      "payload": "path",
+      "illustration_log": "path",
+      "images_dir": "path"
+    },
+    "warnings": ["string"],
+    "logs_dir": "path"
+  },
+  "failure_policy": {
+    "illustration_step": "degrade_to_text_only",
+    "wechat_publish_step": "hard_fail"
+  }
+}
