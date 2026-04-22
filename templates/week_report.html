@@ -60,100 +60,164 @@
 
     #nice {
       padding: 30px 40px 40px;
-      font-family: "Optima-Regular", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+      letter-spacing: .034em;
+      color: rgb(63, 63, 63);
+      font-size: 16px;
       word-break: break-all;
     }
 
     #nice p {
-      margin-top: 5px;
-      margin-bottom: 5px;
-      line-height: 26px;
-      word-spacing: 3px;
-      letter-spacing: 3px;
-      text-align: justify;
-      color: #3e3e3e;
-      font-size: 16px;
-      text-indent: 2em;
+      padding-top: 23px;
+      color: rgb(74, 74, 74);
+      line-height: 1.75em;
     }
 
     #nice h1 {
-      font-size: 1.8em;
-      color: #009688;
-      margin: 1.2em auto;
       text-align: center;
-      border-bottom: 1px solid #009688;
+      background-image: url(https://my-wechat.mdnice.com/mdnice/mountain_2_20191028221337.png);
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: 95px;
+      line-height: 95px;
+      margin-top: 38px;
+      margin-bottom: 10px;
+    }
+
+    #nice h1 .content {
+      font-size: 20px;
+      color: rgb(60, 112, 198);
+      border-bottom: 2px solid #3c7076;
     }
 
     #nice h2 {
-      color: #009688;
-      padding-left: 10px;
-      margin: 1em auto;
-      border-left: 3px solid #009688;
+      display: block;
+      text-align: center;
+      background-image: url(https://my-wechat.mdnice.com/mdnice/mountain_2_20191028221337.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 63px;
+      margin-top: 38px;
+      margin-bottom: 10px;
     }
 
-    #nice h3 {
-      margin: 0.6em auto;
-      padding-left: 10px;
-      border-left: 2px solid #009688;
+    #nice h2 .content {
+      text-align: center;
+      display: inline-block;
+      height: 38px;
+      line-height: 42px;
+      color: rgb(60, 112, 198);
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: 63px;
+      margin-top: 38px;
+      font-size: 18px;
+      margin-bottom: 10px;
     }
 
-    #nice h4 {
-      margin: 0.6em auto;
-      font-size: 1.2em;
-      padding-left: 10px;
-      border-left: 2px dashed #009688;
+    #nice h3:before {
+      content: "";
+      background-image: url(https://my-wechat.mdnice.com/mdnice/mountain_1_20191028221337.png);
+      background-size: 15px 15px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      line-height: 15px;
+      margin-bottom: -1px;
     }
 
-    #nice h5 {
-      margin: 0.6em auto;
-      font-size: 1.1em;
-      padding-left: 10px;
-      border-left: 1px dashed #009688;
-    }
-
-    #nice h6 {
-      margin: 0.6em auto;
-      font-size: 1em;
-      padding-left: 10px;
-      border-left: 1px dotted #009688;
+    #nice h3 .content {
+      font-size: 16px;
+      font-weight: bold;
+      display: inline-block;
+      margin-left: 8px;
+      color: rgb(60, 112, 198);
     }
 
     #nice blockquote {
-      border-left: 2px solid #888;
-      border-right: 2px solid #888;
-      padding-left: 1em;
-      color: #777;
+      padding: 15px 20px;
+      line-height: 27px;
+      background-color: rgb(239, 239, 239);
+      border-left: none;
+      display: block;
+    }
+
+    #nice blockquote p {
+      padding: 0;
+      font-size: 15px;
+      color: rgb(89, 89, 89);
     }
 
     #nice a {
-      color: #009688;
-      border-bottom: 1px solid #009688;
+      color: rgb(60, 112, 198);
       text-decoration: none;
+      border-bottom: 1px solid rgb(60, 112, 198);
+    }
+
+    #nice strong {
+      line-height: 1.75em;
+      color: rgb(74, 74, 74);
+    }
+
+    #nice em strong {
+      color: rgb(248, 57, 41);
+      letter-spacing: 0.3em;
     }
 
     #nice hr {
-      margin: 20px 0;
+      height: 1px;
+      padding: 0;
+      border: none;
+      text-align: center;
+      background-image: linear-gradient(to right, rgba(60, 122, 198, 0), rgba(60, 122, 198, 0.75), rgba(60, 122, 198, 0));
+    }
+
+    #nice img {
+      border-radius: 4px;
+      margin-bottom: 25px;
+    }
+
+    #nice figcaption {
+      display: block;
+      font-size: 12px;
+      font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
     }
 
     #nice p code, #nice li code {
-      color: #009688;
+      color: rgb(60, 112, 198);
     }
 
-    #nice table tr th {
-      border: 1px solid #009688;
-      background-color: #009688;
-      color: #f8f8f8;
-      border-bottom: 0;
-      padding: 5px 10px;
-    }
-
+    #nice table tr th,
     #nice table tr td {
-      border: 1px solid #009688;
-      padding: 5px 10px;
+      font-size: 14px;
     }
 
-    #nice table tr:nth-child(2n) {
-      background-color: #f8f8f8;
+    #nice .footnotes {
+      padding-top: 8px;
+    }
+
+    #nice .footnote-word,
+    #nice .footnote-ref,
+    #nice .footnote-num,
+    #nice .footnote-item p,
+    #nice .footnote-item a {
+      color: rgb(60, 112, 198);
+    }
+
+    #nice .footnote-item p {
+      font-weight: bold;
+    }
+
+    #nice .footnote-item em {
+      color: rgb(60, 112, 198);
+      font-size: 13px;
+      font-style: normal;
+    }
+
+    #nice .footnote-item p em {
+      font-size: 14px;
+      font-weight: normal;
+      border-bottom: 1px dashed rgb(60, 112, 198);
     }
 
     @media (max-width: 768px) {
@@ -163,9 +227,7 @@
       #nice { padding: 22px 20px 26px; }
       #nice p {
         font-size: 15px;
-        line-height: 24px;
-        letter-spacing: 1px;
-        word-spacing: 1px;
+        line-height: 1.7;
       }
     }
   </style>
