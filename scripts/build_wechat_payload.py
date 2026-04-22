@@ -70,83 +70,95 @@ def apply_wechat_inline_style(html: str) -> str:
     replacements = [
         (
             r"<h1>",
-            '<h1 style="text-align:center;background-image:url(https://my-wechat.mdnice.com/mdnice/mountain_2_20191028221337.png);background-position:center top;background-repeat:no-repeat;background-size:95px;line-height:95px;margin-top:38px;margin-bottom:10px;font-size:20px;color:rgb(60,112,198);border-bottom:2px solid #3C7076;">',
+            '<h1 style="font-size:1.7em;font-weight:normal;border-bottom:2px solid hsl(216,100%,68%);">',
         ),
         (
             r"<h2>",
-            '<h2 style="display:block;text-align:center;background-image:url(https://my-wechat.mdnice.com/mdnice/mountain_2_20191028221337.png);background-position:center center;background-repeat:no-repeat;background-size:63px;margin-top:38px;margin-bottom:10px;line-height:42px;font-size:18px;color:rgb(60,112,198);">',
+            '<h2 style="font-weight:normal;color:#333;font-size:1.4em;border-bottom:1px solid hsl(216,100%,68%);">',
         ),
         (
             r"<h3>",
-            '<h3 style="font-size:16px;font-weight:bold;color:rgb(60,112,198);padding-left:23px;background-image:url(https://my-wechat.mdnice.com/mdnice/mountain_1_20191028221337.png);background-repeat:no-repeat;background-size:15px 15px;background-position:left center;">',
+            '<h3 style="font-weight:normal;color:#333;font-size:1.2em;">',
         ),
         (
             r"<h4>",
-            '<h4 style="font-size:16px;font-weight:bold;color:rgb(60,112,198);margin:14px 0 8px;">',
+            '<h4 style="font-weight:normal;font-size:1em;width:80%;border:1px solid hsl(216,100%,68%);border-top:4px solid hsl(216,100%,68%);padding:10px;margin:30px auto;color:#666;">',
         ),
         (
             r"<h5>",
-            '<h5 style="font-size:15px;font-weight:bold;color:rgb(60,112,198);margin:12px 0 8px;">',
+            '<h5 style="font-weight:normal;font-size:1.3em;text-align:center;background:hsl(216,100%,68%);border:3px double #fff;width:80%;padding:10px;margin:30px auto;color:#fff;">',
         ),
         (
             r"<h6>",
-            '<h6 style="font-size:14px;font-weight:bold;color:rgb(60,112,198);margin:10px 0 6px;">',
+            '<h6 style="font-size:1.5em;font-weight:normal;color:hsl(216,100%,68%);border-bottom:1px solid hsl(216,100%,68%);">',
         ),
         (
             r"<p>",
-            '<p style="padding-top:23px;color:rgb(74,74,74);line-height:1.75em;margin:0;">',
+            '<p style="color:#666;">',
         ),
         (
             r"<ul>",
-            '<ul style="margin:10px 0 14px 0;padding-left:22px;">',
+            '<ul style="padding-left:2em;">',
         ),
         (
             r"<ol>",
-            '<ol style="margin:10px 0 14px 0;padding-left:22px;">',
+            '<ol style="padding-left:2em;">',
         ),
         (
             r"<li>",
-            '<li style="font-size:16px;line-height:1.75em;color:rgb(74,74,74);margin:6px 0;">',
-        ),
-        (
-            r"<blockquote>\s*<p[^>]*>",
-            '<blockquote style="padding:15px 20px;line-height:27px;background-color:rgb(239,239,239);border-left:none;display:block;margin:16px 0;"><p style="padding:0;font-size:15px;color:rgb(89,89,89);margin:0;">',
+            '<li style="color:#666;">',
         ),
         (
             r"<blockquote>",
-            '<blockquote style="padding:15px 20px;line-height:27px;background-color:rgb(239,239,239);border-left:none;display:block;margin:16px 0;">',
+            '<blockquote style="background:#f9f9f9;border-left-color:hsl(216,100%,68%);">',
         ),
         (
             r"<hr\s*/?>",
-            '<hr style="height:1px;padding:0;border:none;text-align:center;background-image:linear-gradient(to right,rgba(60,122,198,0),rgba(60,122,198,0.75),rgba(60,122,198,0));margin:20px 0;" />',
+            '<hr style="width:90%;margin:1.5em auto;border-top:2px dashed hsl(216,100%,68%);" />',
         ),
         (
             r"<table>",
-            '<table style="border-collapse:collapse;width:100%;margin:14px 0;font-size:14px;">',
+            '<table style="margin:1.5em auto;width:auto;">',
         ),
         (
             r"<th[^>]*>",
-            '<th style="font-size:14px;padding:6px 8px;border:1px solid #d6d6d6;">',
+            '<th style="color:#333;font-weight:normal;">',
         ),
         (
             r"<td[^>]*>",
-            '<td style="font-size:14px;padding:6px 8px;border:1px solid #d6d6d6;">',
+            '<td style="color:#666;">',
         ),
         (
             r"<code>",
-            '<code style="color:rgb(60,112,198);">',
+            '<code style="color:hsl(216,100%,68%);">',
         ),
         (
             r"<a\s+href=",
-            '<a style="color:rgb(60,112,198);text-decoration:none;border-bottom:1px solid rgb(60,112,198);" href=',
+            '<a style="color:hsl(187,100%,45%);font-weight:normal;border-bottom-color:hsl(187,100%,45%);" href=',
         ),
         (
             r"<strong>",
-            '<strong style="line-height:1.75em;color:rgb(74,74,74);">',
+            '<strong style="color:hsl(216,80%,44%);">',
+        ),
+        (
+            r"<em>",
+            '<em style="font-style:normal;font-weight:normal;color:white;background:hsl(244,100%,75%);padding:2px 4px;margin:0 2px;">',
         ),
         (
             r"<img\s",
-            '<img style="border-radius:4px;margin-bottom:25px;" ',
+            '<img style="width:90%;margin:0 auto;box-shadow:#CCC 0 10px 15px;" ',
+        ),
+        (
+            r"<s>",
+            '<s style="color:#999;">',
+        ),
+        (
+            r"<del>",
+            '<del style="color:#999;">',
+        ),
+        (
+            r"<sup>",
+            '<sup style="line-height:0;">',
         ),
     ]
 
@@ -154,7 +166,7 @@ def apply_wechat_inline_style(html: str) -> str:
         html = re.sub(pattern, repl, html, flags=re.IGNORECASE)
 
     wrapped = (
-        '<section style="line-height:1.6;letter-spacing:.034em;color:rgb(63,63,63);font-size:16px;word-break:break-all;">'
+        '<section style="font-family:PingFang SC, Microsoft YaHei, sans-serif;word-break:break-all;">'
         + html
         + "</section>"
     )

@@ -60,164 +60,167 @@
 
     #nice {
       padding: 30px 40px 40px;
-      line-height: 1.6;
-      letter-spacing: .034em;
-      color: rgb(63, 63, 63);
-      font-size: 16px;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
       word-break: break-all;
     }
 
-    #nice p {
-      padding-top: 23px;
-      color: rgb(74, 74, 74);
-      line-height: 1.75em;
-    }
-
     #nice h1 {
-      text-align: center;
-      background-image: url(https://my-wechat.mdnice.com/mdnice/mountain_2_20191028221337.png);
-      background-position: center top;
-      background-repeat: no-repeat;
-      background-size: 95px;
-      line-height: 95px;
-      margin-top: 38px;
-      margin-bottom: 10px;
+      font-size: 1.7em;
+      font-weight: normal;
+      border-bottom: 2px solid hsl(216, 100%, 68%);
     }
 
     #nice h1 .content {
-      font-size: 20px;
-      color: rgb(60, 112, 198);
-      border-bottom: 2px solid #3c7076;
+      background: hsl(216, 100%, 68%);
+      color: white;
+      padding: 3px 10px;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+      margin-right: 3px;
     }
 
     #nice h2 {
-      display: block;
-      text-align: center;
-      background-image: url(https://my-wechat.mdnice.com/mdnice/mountain_2_20191028221337.png);
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 63px;
-      margin-top: 38px;
-      margin-bottom: 10px;
+      font-weight: normal;
+      color: #333;
+      font-size: 1.4em;
+      border-bottom: 1px solid hsl(216, 100%, 68%);
     }
 
     #nice h2 .content {
+      border-bottom: 1px solid hsl(216, 100%, 68%);
+    }
+
+    #nice h3 {
+      font-weight: normal;
+      color: #333;
+      font-size: 1.2em;
+    }
+
+    #nice h4 {
+      font-weight: normal;
+      font-size: 1em;
+      width: 80%;
+      border: 1px solid hsl(216, 100%, 68%);
+      border-top: 4px solid hsl(216, 100%, 68%);
+      padding: 10px;
+      margin: 30px auto;
+      color: #333;
+    }
+
+    #nice h5 {
+      font-weight: normal;
+      font-size: 1.3em;
       text-align: center;
-      display: inline-block;
-      height: 38px;
-      line-height: 42px;
-      color: rgb(60, 112, 198);
-      background-position: left center;
-      background-repeat: no-repeat;
-      background-size: 63px;
-      margin-top: 38px;
-      font-size: 18px;
-      margin-bottom: 10px;
+      background: hsl(216, 100%, 68%);
+      border: 3px double #fff;
+      width: 80%;
+      padding: 10px;
+      margin: 30px auto;
+      color: #fff;
     }
 
-    #nice h3:before {
-      content: "";
-      background-image: url(https://my-wechat.mdnice.com/mdnice/mountain_1_20191028221337.png);
-      background-size: 15px 15px;
-      display: inline-block;
-      width: 15px;
-      height: 15px;
-      line-height: 15px;
-      margin-bottom: -1px;
+    #nice h6 {
+      font-size: 1.5em;
+      font-weight: normal;
+      color: hsl(216, 100%, 68%);
+      border-bottom: 1px solid hsl(216, 100%, 68%);
     }
 
-    #nice h3 .content {
-      font-size: 16px;
-      font-weight: bold;
-      display: inline-block;
-      margin-left: 8px;
-      color: rgb(60, 112, 198);
+    #nice em {
+      font-style: normal;
+      font-weight: normal;
+      color: white;
+      background: hsl(244, 100%, 75%);
+      padding: 2px 4px;
+      margin: 0 2px;
+    }
+
+    #nice ol,
+    #nice ul {
+      padding-left: 2em;
     }
 
     #nice blockquote {
-      padding: 15px 20px;
-      line-height: 27px;
-      background-color: rgb(239, 239, 239);
-      border-left: none;
-      display: block;
+      background: #f9f9f9;
+      border-left-color: hsl(216, 100%, 68%);
     }
 
     #nice blockquote p {
-      padding: 0;
-      font-size: 15px;
-      color: rgb(89, 89, 89);
+      color: #999;
+      padding: 3px 0;
     }
 
     #nice a {
-      color: rgb(60, 112, 198);
-      text-decoration: none;
-      border-bottom: 1px solid rgb(60, 112, 198);
+      color: hsl(187, 100%, 45%);
+      font-weight: normal;
+      border-bottom-color: hsl(187, 100%, 45%);
     }
 
     #nice strong {
-      line-height: 1.75em;
-      color: rgb(74, 74, 74);
-    }
-
-    #nice em strong {
-      color: rgb(248, 57, 41);
-      letter-spacing: 0.3em;
+      color: hsl(216, 80%, 44%);
     }
 
     #nice hr {
-      height: 1px;
-      padding: 0;
-      border: none;
-      text-align: center;
-      background-image: linear-gradient(to right, rgba(60, 122, 198, 0), rgba(60, 122, 198, 0.75), rgba(60, 122, 198, 0));
+      width: 90%;
+      margin: 1.5em auto;
+      border-top: 2px dashed hsl(216, 100%, 68%);
     }
 
     #nice img {
-      border-radius: 4px;
-      margin-bottom: 25px;
-    }
-
-    #nice figcaption {
-      display: block;
-      font-size: 12px;
-      font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      width: 90%;
+      margin: 0 auto;
+      box-shadow: #ccc 0 10px 15px;
     }
 
     #nice p code, #nice li code {
-      color: rgb(60, 112, 198);
+      color: hsl(216, 100%, 68%);
     }
 
-    #nice table tr th,
+    #nice table {
+      margin: 1.5em auto;
+      width: auto;
+    }
+
+    #nice s,
+    #nice del {
+      color: #999;
+    }
+
+    #nice p,
+    #nice li,
+    #nice li span,
+    #nice h4,
     #nice table tr td {
-      font-size: 14px;
+      color: #666;
     }
 
-    #nice .footnotes {
-      padding-top: 8px;
+    #nice table tr th {
+      color: #333;
+      font-weight: normal;
+    }
+
+    #nice sup {
+      line-height: 0;
     }
 
     #nice .footnote-word,
-    #nice .footnote-ref,
-    #nice .footnote-num,
-    #nice .footnote-item p,
-    #nice .footnote-item a {
-      color: rgb(60, 112, 198);
+    #nice .footnote-ref {
+      font-weight: normal;
+      color: hsl(187, 100%, 45%);
+    }
+
+    #nice .footnotes-sep,
+    #nice .footnote-num {
+      font-family: inherit;
     }
 
     #nice .footnote-item p {
-      font-weight: bold;
-    }
-
-    #nice .footnote-item em {
-      color: rgb(60, 112, 198);
-      font-size: 13px;
-      font-style: normal;
+      color: #666;
     }
 
     #nice .footnote-item p em {
-      font-size: 14px;
-      font-weight: normal;
-      border-bottom: 1px dashed rgb(60, 112, 198);
+      color: #999;
+      background: transparent;
     }
 
     @media (max-width: 768px) {
@@ -228,6 +231,10 @@
       #nice p {
         font-size: 15px;
         line-height: 1.7;
+      }
+      #nice h4,
+      #nice h5 {
+        width: 92%;
       }
     }
   </style>
