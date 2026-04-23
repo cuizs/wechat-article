@@ -69,10 +69,6 @@ def apply_wechat_inline_style(html: str) -> str:
     """Apply WeChat-friendly inline styles. WeChat strips <style>/class aggressively."""
     replacements = [
         (
-            r"<h1>",
-            '<h1 style="margin-top:30px;margin-bottom:15px;font-weight:bold;color:black;font-size:24px;">',
-        ),
-        (
             r"<h2>",
             '<h2 style="margin-top:30px;margin-bottom:15px;font-weight:bold;font-size:22px; background: linear-gradient(#0e3a9d 90%, #ffb906 10%); color: #ffffff;display: inline-block;padding: 2px 13px 2px;">',
         ),
