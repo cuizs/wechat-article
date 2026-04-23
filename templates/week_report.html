@@ -59,125 +59,401 @@
     }
 
     #nice {
-      padding: 30px 40px 40px;
+      padding: 25px 30px;
+      font-size: 16px;
+      color: black;
+      line-height: 1.6;
+      word-spacing: 0;
+      letter-spacing: 0;
+      word-break: break-word;
+      word-wrap: break-word;
+      text-align: justify;
+      font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      margin-top: -10px;
     }
 
     #nice p {
-      margin: 0 0 20px;
-      padding: 0;
-      line-height: 1.8em;
-      color: #3a3a3a;
+      font-size: 16px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      margin: 0;
+      line-height: 26px;
+      color: black;
     }
 
-    #nice h1 {
-      font-size: 2.1em;
-      line-height: 1.1em;
-      padding-top: 16px;
-      padding-bottom: 10px;
-      margin-bottom: 4px;
-      border-bottom: 1px solid #c99833;
-    }
-
-    #nice h1 .content {
-      color: #515151;
-      font-weight: 700;
-    }
-
+    #nice h1,
     #nice h2,
     #nice h3,
     #nice h4,
     #nice h5,
     #nice h6 {
-      line-height: 1.5em;
-      margin-top: 2.2em;
-      margin-bottom: 4px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      color: black;
+    }
+
+    #nice h1 {
+      font-size: 24px;
     }
 
     #nice h2 {
-      margin-bottom: 35px;
-      display: inline-block;
-      font-weight: bold;
-      background: linear-gradient(#0e3a9d 90%, #ffb906 10%);
-      color: #ffffff;
-      padding: 2px 13px 2px;
-      margin-right: 3px;
-      height: 50%;
+      font-size: 22px;
     }
 
     #nice h3 {
-      line-height: 1.4;
-      padding-top: 10px;
-      margin: 10px 0 5px;
-      color: #515151;
-      font-weight: 700;
-      font-size: 1.0em;
+      font-size: 20px;
+    }
+
+    #nice h4 {
+      font-size: 18px;
+    }
+
+    #nice h5 {
+      font-size: 16px;
+    }
+
+    #nice h6 {
+      font-size: 16px;
+    }
+
+    #nice h1 .prefix,
+    #nice h2 .prefix,
+    #nice h3 .prefix,
+    #nice h4 .prefix,
+    #nice h5 .prefix,
+    #nice h6 .prefix {
+      display: none;
+    }
+
+    #nice h1 .suffix,
+    #nice h2 .suffix,
+    #nice h3 .suffix,
+    #nice h4 .suffix,
+    #nice h5 .suffix,
+    #nice h6 .suffix {
+      display: none;
+    }
+
+    #nice ul,
+    #nice ol {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      padding-left: 25px;
+      color: black;
+    }
+
+    #nice ul {
+      list-style-type: disc;
+    }
+
+    #nice ul ul {
+      list-style-type: square;
+    }
+
+    #nice ol {
+      list-style-type: decimal;
+    }
+
+    #nice li section {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      line-height: 26px;
+      text-align: left;
+      color: rgb(1, 1, 1);
+      font-weight: 500;
     }
 
     #nice blockquote {
-      border-left-color: #ffb906;
-      background: #fff5e3;
-      color: #595959;
+      display: block;
+      font-size: 0.9em;
+      overflow: auto;
+      border-left: 3px solid rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.05);
+      color: #6a737d;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 10px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+    #nice blockquote p {
+      padding: 0;
+      margin: 0;
+      color: black;
+      line-height: 26px;
+    }
+
+    #nice .table-of-contents a {
+      border: none;
+      color: black;
+      font-weight: normal;
     }
 
     #nice a {
-      border: none;
       text-decoration: none;
-      color: #0e3a9d;
+      color: #1e6bb8;
+      word-wrap: break-word;
+      font-weight: bold;
+      border-bottom: 1px solid #1e6bb8;
     }
 
-    #nice a:hover {
-      color: #0e3a9d;
-      text-decoration: underline;
+    #nice strong {
+      font-weight: bold;
+      color: black;
+    }
+
+    #nice em {
+      font-style: italic;
+      color: black;
+    }
+
+    #nice em strong {
+      font-weight: bold;
+      color: black;
     }
 
     #nice del {
-      color: #d19826;
+      font-style: italic;
+      color: black;
     }
 
     #nice hr {
-      border-top: 1px solid #0e3a9d;
-      margin: 20px 0;
+      height: 1px;
+      margin: 10px 0;
+      border: none;
+      border-top: 1px solid black;
+    }
+
+    #nice pre {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    #nice pre code {
+      display: -webkit-box;
+      font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;
+      border-radius: 0;
+      font-size: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #nice pre code span {
+      line-height: 26px;
+    }
+
+    #nice p code,
+    #nice li code {
+      font-size: 14px;
+      word-wrap: break-word;
+      padding: 2px 4px;
+      border-radius: 4px;
+      margin: 0 2px;
+      color: #1e6bb8;
+      background-color: rgba(27, 31, 35, 0.05);
+      font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;
+      word-break: break-all;
     }
 
     #nice img {
-      width: 100%;
-      border-radius: 5px;
       display: block;
-      margin-bottom: 15px;
-      height: auto;
+      margin: 0 auto;
+      width: auto;
+      max-width: 100%;
+    }
+
+    #nice figure {
+      margin: 10px 0;
     }
 
     #nice figcaption {
-      color: #dda52d;
+      margin-top: 5px;
+      text-align: center;
+      color: #888;
       font-size: 14px;
     }
 
-    #nice p code, #nice li code {
-      color: #9b6e23;
-      background-color: #fff5e3;
-      padding: 3px;
-      margin: 3px;
+    #nice table {
+      display: table;
+      text-align: left;
+    }
+
+    #nice tbody {
+      border: 0;
+    }
+
+    #nice table tr {
+      border: 0;
+      border-top: 1px solid #ccc;
+      background-color: white;
+    }
+
+    #nice table tr:nth-child(2n) {
+      background-color: #f8f8f8;
     }
 
     #nice table tr th,
     #nice table tr td {
-      text-align: center;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      text-align: left;
+    }
+
+    #nice table tr th {
+      font-weight: bold;
+      background-color: #f0f0f0;
+    }
+
+    #nice .code-snippet__fix {
+      word-wrap: break-word !important;
+      font-size: 14px;
+      margin: 10px 0;
+      display: block;
+      color: #333;
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.03);
+      border: 1px solid #f0f0f0;
+      border-radius: 2px;
+      display: flex;
+      line-height: 20px;
+    }
+
+    #nice .code-snippet__fix pre {
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    #nice .code-snippet__fix .code-snippet__line-index {
+      counter-reset: line;
+      flex-shrink: 0;
+      height: 100%;
+      list-style-type: none;
+      padding: 16px;
+      margin: 0;
+    }
+
+    #nice .code-snippet__fix .code-snippet__line-index li {
+      list-style-type: none;
+      text-align: right;
+      line-height: 26px;
+      color: black;
+      margin: 0;
+    }
+
+    #nice .code-snippet__fix .code-snippet__line-index li::before {
+      min-width: 1.5em;
+      text-align: right;
+      left: -2.5em;
+      counter-increment: line;
+      content: counter(line);
+      display: inline;
+      color: rgba(0, 0, 0, 0.3);
+    }
+
+    #nice .code-snippet__fix pre {
+      overflow-x: auto;
+      padding: 16px 16px 16px 0;
+      white-space: normal;
+      flex: 1;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #nice .code-snippet__fix code {
+      text-align: left;
+      font-size: 14px;
+      white-space: pre;
+      display: flex;
+      position: relative;
+      font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      padding: 0;
     }
 
     #nice .footnote-word {
-      color: #ffb11b;
-      padding: 3px;
+      color: #1e6bb8;
+      font-weight: bold;
     }
 
     #nice .footnote-ref {
-      color: #dda52d;
-      margin: 2px;
-      padding: 3px;
+      color: #1e6bb8;
+      font-weight: bold;
+    }
+
+    #nice .footnote-item {
+      display: flex;
+    }
+
+    #nice .footnote-num {
+      display: inline;
+      width: 10%;
+      background: none;
+      font-size: 80%;
+      opacity: 0.6;
+      line-height: 26px;
+      font-family: ptima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    }
+
+    #nice .footnote-item p {
+      display: inline;
+      font-size: 14px;
+      width: 90%;
+      padding: 0;
+      margin: 0;
+      line-height: 26px;
+      color: black;
+      word-break: break-all;
+    }
+
+    #nice sub, #nice sup {
+      line-height: 0;
     }
 
     #nice .footnotes-sep:before {
-      margin: 30px 0 15px 0;
-      font-weight: 800;
+      content: "参考资料";
+      display: block;
+    }
+
+    #nice .block-equation {
+      display: block;
+      text-align: center;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #nice .block-equation svg {
+      max-width: 300% !important;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #nice .imageflow-layer1 {
+      margin: 1em auto;
+      white-space: normal;
+      border: 0 none;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #nice .imageflow-layer2 {
+      white-space: nowrap;
+      width: 100%;
+      overflow-x: scroll;
+    }
+
+    #nice .imageflow-layer3 {
+      display: inline-block;
+      word-wrap: break-word;
+      white-space: normal;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    #nice .imageflow-img {
+      display: inline-block;
+    }
+
+    #nice .nice-suffix-juejin-container {
+      margin-top: 20px !important;
     }
 
     @media (max-width: 768px) {

@@ -58,7 +58,7 @@ def extract_first_url(md_text: str) -> str:
 
 
 def markdown_to_wechat_html(md_text: str) -> str:
-    md_text = auto_link_urls_in_markdown(md_text)
+    # md_text = auto_link_urls_in_markdown(md_text)
     html = markdown.markdown(md_text, extensions=["extra", "sane_lists", "tables", "nl2br"])
     # Remove first H1 to avoid title duplication in WeChat article page.
     html = re.sub(r"^\s*<h1>.*?</h1>\s*", "", html, count=1, flags=re.DOTALL)
@@ -70,95 +70,103 @@ def apply_wechat_inline_style(html: str) -> str:
     replacements = [
         (
             r"<h1>",
-            '<h1 style="font-size:2.1em;line-height:1.1em;padding-top:16px;padding-bottom:10px;margin-bottom:4px;border-bottom:1px solid #c99833;">',
+            '<h1 style="margin-top:30px;margin-bottom:15px;font-weight:bold;color:black;font-size:24px;">',
         ),
         (
             r"<h2>",
-            '<h2 style="line-height:1.5em;margin-top:2.2em;margin-bottom:35px;display:inline-block;font-weight:bold;background:linear-gradient(#0e3a9d 90%, #ffb906 10%);color:#ffffff;padding:2px 13px 2px;margin-right:3px;height:50%;">',
+            '<h2 style="margin-top:30px;margin-bottom:15px;font-weight:bold;color:black;font-size:22px;">',
         ),
         (
             r"<h3>",
-            '<h3 style="line-height:1.4;padding-top:10px;margin:10px 0 5px;color:#515151;font-weight:700;font-size:1em;">',
+            '<h3 style="margin-top:30px;margin-bottom:15px;font-weight:bold;color:black;font-size:20px;">',
         ),
         (
             r"<h4>",
-            '<h4 style="line-height:1.5em;margin-top:2.2em;margin-bottom:4px;">',
+            '<h4 style="margin-top:30px;margin-bottom:15px;font-weight:bold;color:black;font-size:18px;">',
         ),
         (
             r"<h5>",
-            '<h5 style="line-height:1.5em;margin-top:2.2em;margin-bottom:4px;">',
+            '<h5 style="margin-top:30px;margin-bottom:15px;font-weight:bold;color:black;font-size:16px;">',
         ),
         (
             r"<h6>",
-            '<h6 style="line-height:1.5em;margin-top:2.2em;margin-bottom:4px;">',
+            '<h6 style="margin-top:30px;margin-bottom:15px;font-weight:bold;color:black;font-size:16px;">',
         ),
         (
             r"<p>",
-            '<p style="margin:0 0 20px;padding:0;line-height:1.8em;color:#3a3a3a;">',
+            '<p style="font-size:16px;padding-top:8px;padding-bottom:8px;margin:0;line-height:26px;color:black;">',
         ),
         (
             r"<ul>",
-            '<ul>',
+            '<ul style="margin-top:8px;margin-bottom:8px;padding-left:25px;color:black;list-style-type:disc;">',
         ),
         (
             r"<ol>",
-            '<ol>',
+            '<ol style="margin-top:8px;margin-bottom:8px;padding-left:25px;color:black;list-style-type:decimal;">',
         ),
         (
             r"<li>",
-            '<li>',
+            '<li style="line-height:26px;color:rgb(1,1,1);font-weight:500;">',
         ),
         (
             r"<blockquote>",
-            '<blockquote style="border-left-color:#ffb906;background:#fff5e3;color:#595959;">',
+            '<blockquote style="display:block;font-size:0.9em;overflow:auto;border-left:3px solid rgba(0,0,0,0.4);background:rgba(0,0,0,0.05);color:#6a737d;padding:10px 10px 10px 20px;margin:20px 0;">',
+        ),
+        (
+            r"<blockquote>\s*<p[^>]*>",
+            '<blockquote style="display:block;font-size:0.9em;overflow:auto;border-left:3px solid rgba(0,0,0,0.4);background:rgba(0,0,0,0.05);color:#6a737d;padding:10px 10px 10px 20px;margin:20px 0;"><p style="margin:0;color:black;line-height:26px;">',
         ),
         (
             r"<hr\s*/?>",
-            '<hr style="border-top:1px solid #0e3a9d;margin:20px 0;" />',
+            '<hr style="height:1px;margin:10px 0;border:none;border-top:1px solid black;" />',
         ),
         (
             r"<table>",
-            '<table>',
+            '<table style="display:table;text-align:left;">',
         ),
         (
             r"<th[^>]*>",
-            '<th style="text-align:center;">',
+            '<th style="font-size:16px;border:1px solid #ccc;padding:5px 10px;text-align:left;font-weight:bold;background-color:#f0f0f0;">',
         ),
         (
             r"<td[^>]*>",
-            '<td style="text-align:center;">',
+            '<td style="font-size:16px;border:1px solid #ccc;padding:5px 10px;text-align:left;">',
         ),
         (
             r"<code>",
-            '<code style="color:#9b6e23;background-color:#fff5e3;padding:3px;margin:3px;">',
+            '<code style="font-size:14px;word-wrap:break-word;padding:2px 4px;border-radius:4px;margin:0 2px;color:#1e6bb8;background-color:rgba(27,31,35,.05);font-family:Operator Mono,Consolas,Monaco,Menlo,monospace;word-break:break-all;">',
         ),
         (
             r"<a\s+href=",
-            '<a style="border:none;text-decoration:none;color:#0e3a9d;" href=',
+            '<a style="text-decoration:none;color:#1e6bb8;word-wrap:break-word;font-weight:bold;border-bottom:1px solid #1e6bb8;" href=',
         ),
         (
             r"<strong>",
-            '<strong>',
+            '<strong style="font-weight:bold;color:black;">',
         ),
         (
             r"<em>",
-            '<em>',
+            '<em style="font-style:italic;color:black;">',
         ),
         (
             r"<img\s",
-            '<img style="width:100%;border-radius:5px;display:block;margin-bottom:15px;height:auto;" ',
+            '<img style="display:block;margin:0 auto;width:auto;max-width:100%;" ',
         ),
         (
             r"<del>",
-            '<del style="color:#d19826;">',
+            '<del style="font-style:italic;color:black;">',
         ),
         (
             r"<figcaption>",
-            '<figcaption style="color:#dda52d;font-size:14px;">',
+            '<figcaption style="margin-top:5px;text-align:center;color:#888;font-size:14px;">',
         ),
         (
             r'<sup class="footnote-ref">',
-            '<sup class="footnote-ref" style="color:#dda52d;margin:2px;padding:3px;">',
+            '<sup class="footnote-ref" style="color:#1e6bb8;font-weight:bold;">',
+        ),
+        (
+            r'<span class="footnote-word">',
+            '<span class="footnote-word" style="color:#1e6bb8;font-weight:bold;">',
         ),
     ]
 
@@ -166,7 +174,7 @@ def apply_wechat_inline_style(html: str) -> str:
         html = re.sub(pattern, repl, html, flags=re.IGNORECASE)
 
     wrapped = (
-        '<section style="word-break:break-all;">'
+        '<section style="font-size:16px;color:black;padding:25px 30px;line-height:1.6;word-spacing:0;letter-spacing:0;word-break:break-word;word-wrap:break-word;text-align:justify;font-family:Optima-Regular,Optima,PingFangSC-light,PingFangTC-light,PingFang SC,Cambria,Cochin,Georgia,Times,Times New Roman,serif;margin-top:-10px;">'
         + html
         + "</section>"
     )
