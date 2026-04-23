@@ -60,167 +60,124 @@
 
     #nice {
       padding: 30px 40px 40px;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      word-break: break-all;
+    }
+
+    #nice p {
+      margin: 0 0 20px;
+      padding: 0;
+      line-height: 1.8em;
+      color: #3a3a3a;
     }
 
     #nice h1 {
-      font-size: 1.7em;
-      font-weight: normal;
-      border-bottom: 2px solid hsl(216, 100%, 68%);
+      font-size: 2.1em;
+      line-height: 1.1em;
+      padding-top: 16px;
+      padding-bottom: 10px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid #c99833;
     }
 
     #nice h1 .content {
-      background: hsl(216, 100%, 68%);
-      color: white;
-      padding: 3px 10px;
-      border-top-right-radius: 3px;
-      border-top-left-radius: 3px;
-      margin-right: 3px;
+      color: #515151;
+      font-weight: 700;
+    }
+
+    #nice h2,
+    #nice h3,
+    #nice h4,
+    #nice h5,
+    #nice h6 {
+      line-height: 1.5em;
+      margin-top: 2.2em;
+      margin-bottom: 4px;
     }
 
     #nice h2 {
-      font-weight: normal;
-      color: #333;
-      font-size: 1.4em;
-      border-bottom: 1px solid hsl(216, 100%, 68%);
-    }
-
-    #nice h2 .content {
-      border-bottom: 1px solid hsl(216, 100%, 68%);
+      margin-bottom: 35px;
+      display: inline-block;
+      font-weight: bold;
+      background: linear-gradient(#0e3a9d 90%, #ffb906 10%);
+      color: #ffffff;
+      padding: 2px 13px 2px;
+      margin-right: 3px;
+      height: 50%;
     }
 
     #nice h3 {
-      font-weight: normal;
-      color: #333;
-      font-size: 1.2em;
-    }
-
-    #nice h4 {
-      font-weight: normal;
-      font-size: 1em;
-      width: 80%;
-      border: 1px solid hsl(216, 100%, 68%);
-      border-top: 4px solid hsl(216, 100%, 68%);
-      padding: 10px;
-      margin: 30px auto;
-      color: #333;
-    }
-
-    #nice h5 {
-      font-weight: normal;
-      font-size: 1.3em;
-      text-align: center;
-      background: hsl(216, 100%, 68%);
-      border: 3px double #fff;
-      width: 80%;
-      padding: 10px;
-      margin: 30px auto;
-      color: #fff;
-    }
-
-    #nice h6 {
-      font-size: 1.5em;
-      font-weight: normal;
-      color: hsl(216, 100%, 68%);
-      border-bottom: 1px solid hsl(216, 100%, 68%);
-    }
-
-    #nice em {
-      font-style: normal;
-      font-weight: normal;
-      color: white;
-      background: hsl(244, 100%, 75%);
-      padding: 2px 4px;
-      margin: 0 2px;
-    }
-
-    #nice ol,
-    #nice ul {
-      padding-left: 2em;
+      line-height: 1.4;
+      padding-top: 10px;
+      margin: 10px 0 5px;
+      color: #515151;
+      font-weight: 700;
+      font-size: 1.0em;
     }
 
     #nice blockquote {
-      background: #f9f9f9;
-      border-left-color: hsl(216, 100%, 68%);
-    }
-
-    #nice blockquote p {
-      color: #999;
-      padding: 3px 0;
+      border-left-color: #ffb906;
+      background: #fff5e3;
+      color: #595959;
     }
 
     #nice a {
-      color: hsl(187, 100%, 45%);
-      font-weight: normal;
-      border-bottom-color: hsl(187, 100%, 45%);
+      border: none;
+      text-decoration: none;
+      color: #0e3a9d;
     }
 
-    #nice strong {
-      color: hsl(216, 80%, 44%);
+    #nice a:hover {
+      color: #0e3a9d;
+      text-decoration: underline;
+    }
+
+    #nice del {
+      color: #d19826;
     }
 
     #nice hr {
-      width: 90%;
-      margin: 1.5em auto;
-      border-top: 2px dashed hsl(216, 100%, 68%);
+      border-top: 1px solid #0e3a9d;
+      margin: 20px 0;
     }
 
     #nice img {
-      width: 90%;
-      margin: 0 auto;
-      box-shadow: #ccc 0 10px 15px;
+      width: 100%;
+      border-radius: 5px;
+      display: block;
+      margin-bottom: 15px;
+      height: auto;
+    }
+
+    #nice figcaption {
+      color: #dda52d;
+      font-size: 14px;
     }
 
     #nice p code, #nice li code {
-      color: hsl(216, 100%, 68%);
+      color: #9b6e23;
+      background-color: #fff5e3;
+      padding: 3px;
+      margin: 3px;
     }
 
-    #nice table {
-      margin: 1.5em auto;
-      width: auto;
-    }
-
-    #nice s,
-    #nice del {
-      color: #999;
-    }
-
-    #nice p,
-    #nice li,
-    #nice li span,
-    #nice h4,
+    #nice table tr th,
     #nice table tr td {
-      color: #666;
+      text-align: center;
     }
 
-    #nice table tr th {
-      color: #333;
-      font-weight: normal;
+    #nice .footnote-word {
+      color: #ffb11b;
+      padding: 3px;
     }
 
-    #nice sup {
-      line-height: 0;
-    }
-
-    #nice .footnote-word,
     #nice .footnote-ref {
-      font-weight: normal;
-      color: hsl(187, 100%, 45%);
+      color: #dda52d;
+      margin: 2px;
+      padding: 3px;
     }
 
-    #nice .footnotes-sep,
-    #nice .footnote-num {
-      font-family: inherit;
-    }
-
-    #nice .footnote-item p {
-      color: #666;
-    }
-
-    #nice .footnote-item p em {
-      color: #999;
-      background: transparent;
+    #nice .footnotes-sep:before {
+      margin: 30px 0 15px 0;
+      font-weight: 800;
     }
 
     @media (max-width: 768px) {
@@ -228,14 +185,6 @@
       .hero { padding: 24px 20px 20px; }
       .hero h1 { font-size: 25px; }
       #nice { padding: 22px 20px 26px; }
-      #nice p {
-        font-size: 15px;
-        line-height: 1.7;
-      }
-      #nice h4,
-      #nice h5 {
-        width: 92%;
-      }
     }
   </style>
 </head>

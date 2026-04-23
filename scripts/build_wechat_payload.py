@@ -70,95 +70,95 @@ def apply_wechat_inline_style(html: str) -> str:
     replacements = [
         (
             r"<h1>",
-            '<h1 style="font-size:1.7em;font-weight:normal;border-bottom:2px solid hsl(216,100%,68%);">',
+            '<h1 style="font-size:2.1em;line-height:1.1em;padding-top:16px;padding-bottom:10px;margin-bottom:4px;border-bottom:1px solid #c99833;">',
         ),
         (
             r"<h2>",
-            '<h2 style="font-weight:normal;color:#333;font-size:1.4em;border-bottom:1px solid hsl(216,100%,68%);">',
+            '<h2 style="line-height:1.5em;margin-top:2.2em;margin-bottom:35px;display:inline-block;font-weight:bold;background:linear-gradient(#0e3a9d 90%, #ffb906 10%);color:#ffffff;padding:2px 13px 2px;margin-right:3px;height:50%;">',
         ),
         (
             r"<h3>",
-            '<h3 style="font-weight:normal;color:#333;font-size:1.2em;">',
+            '<h3 style="line-height:1.4;padding-top:10px;margin:10px 0 5px;color:#515151;font-weight:700;font-size:1em;">',
         ),
         (
             r"<h4>",
-            '<h4 style="font-weight:normal;font-size:1em;width:80%;border:1px solid hsl(216,100%,68%);border-top:4px solid hsl(216,100%,68%);padding:10px;margin:30px auto;color:#666;">',
+            '<h4 style="line-height:1.5em;margin-top:2.2em;margin-bottom:4px;">',
         ),
         (
             r"<h5>",
-            '<h5 style="font-weight:normal;font-size:1.3em;text-align:center;background:hsl(216,100%,68%);border:3px double #fff;width:80%;padding:10px;margin:30px auto;color:#fff;">',
+            '<h5 style="line-height:1.5em;margin-top:2.2em;margin-bottom:4px;">',
         ),
         (
             r"<h6>",
-            '<h6 style="font-size:1.5em;font-weight:normal;color:hsl(216,100%,68%);border-bottom:1px solid hsl(216,100%,68%);">',
+            '<h6 style="line-height:1.5em;margin-top:2.2em;margin-bottom:4px;">',
         ),
         (
             r"<p>",
-            '<p style="color:#666;">',
+            '<p style="margin:0 0 20px;padding:0;line-height:1.8em;color:#3a3a3a;">',
         ),
         (
             r"<ul>",
-            '<ul style="padding-left:2em;">',
+            '<ul>',
         ),
         (
             r"<ol>",
-            '<ol style="padding-left:2em;">',
+            '<ol>',
         ),
         (
             r"<li>",
-            '<li style="color:#666;">',
+            '<li>',
         ),
         (
             r"<blockquote>",
-            '<blockquote style="background:#f9f9f9;border-left-color:hsl(216,100%,68%);">',
+            '<blockquote style="border-left-color:#ffb906;background:#fff5e3;color:#595959;">',
         ),
         (
             r"<hr\s*/?>",
-            '<hr style="width:90%;margin:1.5em auto;border-top:2px dashed hsl(216,100%,68%);" />',
+            '<hr style="border-top:1px solid #0e3a9d;margin:20px 0;" />',
         ),
         (
             r"<table>",
-            '<table style="margin:1.5em auto;width:auto;">',
+            '<table>',
         ),
         (
             r"<th[^>]*>",
-            '<th style="color:#333;font-weight:normal;">',
+            '<th style="text-align:center;">',
         ),
         (
             r"<td[^>]*>",
-            '<td style="color:#666;">',
+            '<td style="text-align:center;">',
         ),
         (
             r"<code>",
-            '<code style="color:hsl(216,100%,68%);">',
+            '<code style="color:#9b6e23;background-color:#fff5e3;padding:3px;margin:3px;">',
         ),
         (
             r"<a\s+href=",
-            '<a style="color:hsl(187,100%,45%);font-weight:normal;border-bottom-color:hsl(187,100%,45%);" href=',
+            '<a style="border:none;text-decoration:none;color:#0e3a9d;" href=',
         ),
         (
             r"<strong>",
-            '<strong style="color:hsl(216,80%,44%);">',
+            '<strong>',
         ),
         (
             r"<em>",
-            '<em style="font-style:normal;font-weight:normal;color:white;background:hsl(244,100%,75%);padding:2px 4px;margin:0 2px;">',
+            '<em>',
         ),
         (
             r"<img\s",
-            '<img style="width:90%;margin:0 auto;box-shadow:#CCC 0 10px 15px;" ',
-        ),
-        (
-            r"<s>",
-            '<s style="color:#999;">',
+            '<img style="width:100%;border-radius:5px;display:block;margin-bottom:15px;height:auto;" ',
         ),
         (
             r"<del>",
-            '<del style="color:#999;">',
+            '<del style="color:#d19826;">',
         ),
         (
-            r"<sup>",
-            '<sup style="line-height:0;">',
+            r"<figcaption>",
+            '<figcaption style="color:#dda52d;font-size:14px;">',
+        ),
+        (
+            r'<sup class="footnote-ref">',
+            '<sup class="footnote-ref" style="color:#dda52d;margin:2px;padding:3px;">',
         ),
     ]
 
@@ -166,7 +166,7 @@ def apply_wechat_inline_style(html: str) -> str:
         html = re.sub(pattern, repl, html, flags=re.IGNORECASE)
 
     wrapped = (
-        '<section style="font-family:PingFang SC, Microsoft YaHei, sans-serif;word-break:break-all;">'
+        '<section style="word-break:break-all;">'
         + html
         + "</section>"
     )
