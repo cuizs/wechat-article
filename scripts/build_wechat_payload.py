@@ -74,7 +74,7 @@ def apply_wechat_inline_style(html: str) -> str:
         ),
         (
             r"<h2>",
-            '<h2 style="margin-top:30px;margin-bottom:15px;font-weight:bold;color:black;font-size:22px;">',
+            '<h2 style="margin-top:30px;margin-bottom:15px;font-weight:bold;font-size:22px; background: linear-gradient(#0e3a9d 90%, #ffb906 10%); color: #ffffff;display: inline-block;">',
         ),
         (
             r"<h3>",
@@ -110,7 +110,7 @@ def apply_wechat_inline_style(html: str) -> str:
         ),
         (
             r"<blockquote>",
-            '<blockquote style="display:block;font-size:0.9em;overflow:auto;border-left:3px solid rgba(0,0,0,0.4);background:rgba(0,0,0,0.05);color:#6a737d;padding:10px 10px 10px 20px;margin:20px 0;">',
+            '<blockquote style="display:block;font-size:0.9em;overflow:auto;border-left:3px solid rgba(0,0,0,0.4);background:rgba(0,0,0,0.05);color:#6a737d;padding:10px 10px 10px 20px;margin:20px 0;border-left-color: #0e3a9d;background: #f9f9f9; color: #595959;">',
         ),
         (
             r"<blockquote>\s*<p[^>]*>",
@@ -174,7 +174,7 @@ def apply_wechat_inline_style(html: str) -> str:
         html = re.sub(pattern, repl, html, flags=re.IGNORECASE)
 
     wrapped = (
-        '<section style="font-size:16px;color:black;padding:25px 30px;line-height:1.6;word-spacing:0;letter-spacing:0;word-break:break-word;word-wrap:break-word;text-align:justify;font-family:Optima-Regular,Optima,PingFangSC-light,PingFangTC-light,PingFang SC,Cambria,Cochin,Georgia,Times,Times New Roman,serif;margin-top:-10px;">'
+        '<section style="font-size:16px;color:black;line-height:1.6;word-spacing:0;letter-spacing:0;word-break:break-word;word-wrap:break-word;text-align:justify;font-family:Optima-Regular,Optima,PingFangSC-light,PingFangTC-light,PingFang SC,Cambria,Cochin,Georgia,Times,Times New Roman,serif;margin-top:-10px;">'
         + html
         + "</section>"
     )
