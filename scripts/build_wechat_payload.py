@@ -60,8 +60,25 @@ def extract_first_url(md_text: str) -> str:
 def markdown_to_wechat_html(md_text: str) -> str:
     # md_text = auto_link_urls_in_markdown(md_text)
     html = markdown.markdown(md_text, extensions=["extra", "sane_lists", "tables", "nl2br"])
-    # Remove first H1 to avoid title duplication in WeChat article page.
-    html = re.sub(r"^\s*<h1>.*?</h1>\s*", "", html, count=1, flags=re.DOTALL)
+    # Remove leading noise and the first H1 to avoid title duplication.
+    # Keep <body ...> tag itself when full HTML is provided.
+    if re.search(r"<body\b[^>]*>", html, flags=re.IGNORECASE):
+        html = re.sub(
+            r"(<body\b[^>]*>)(?:\s|.)*?<h1[^>]*>.*?</h1>\s*",
+            r"\1",
+            html,
+            count=1,
+            flags=re.DOTALL | re.IGNORECASE,
+        )
+    else:
+        # Markdown output is usually an HTML fragment, so strip from start to first </h1>.
+        html = re.sub(
+            r"^.*?<h1[^>]*>.*?</h1>\s*",
+            "",
+            html,
+            count=1,
+            flags=re.DOTALL | re.IGNORECASE,
+        )
     return apply_wechat_inline_style(html)
 
 
