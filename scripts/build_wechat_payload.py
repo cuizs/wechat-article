@@ -79,35 +79,23 @@ def markdown_to_wechat_html(md_text: str) -> str:
             count=1,
             flags=re.DOTALL | re.IGNORECASE,
         )
-    html = convert_ordered_lists_to_manual_numbering(html)
+    html = convert_lists_to_line_breaks(html)
     return apply_wechat_inline_style(html)
 
 
-def convert_ordered_lists_to_manual_numbering(html: str) -> str:
-    """Convert <ol> into <ul> with manual numeric prefixes for WeChat compatibility."""
-    ol_pattern = re.compile(r"<ol\b[^>]*>(.*?)</ol>", flags=re.IGNORECASE | re.DOTALL)
-    li_open_pattern = re.compile(r"<li\b[^>]*>", flags=re.IGNORECASE)
+def convert_lists_to_line_breaks(html: str) -> str:
+    """Convert <ul>/<ol>/<li> lists to plain paragraphs with line breaks."""
+    list_pattern = re.compile(r"<(ul|ol)\b[^>]*>(.*?)</\1>", flags=re.IGNORECASE | re.DOTALL)
+    li_pattern = re.compile(r"<li\b[^>]*>(.*?)</li>", flags=re.IGNORECASE | re.DOTALL)
 
-    def replace_ol(match: re.Match) -> str:
-        content = match.group(1)
-        index = 0
+    def replace_list(match: re.Match) -> str:
+        list_content = match.group(2)
+        items = [item.strip() for item in li_pattern.findall(list_content) if item.strip()]
+        if not items:
+            return ""
+        return "<p>" + "<br>".join(items) + "</p>"
 
-        def replace_li(li_match: re.Match) -> str:
-            nonlocal index
-            index += 1
-            return (
-                '<li style="line-height:26px;color:rgb(1,1,1);font-weight:500;text-indent:-2em;">'
-                f"{index}. "
-            )
-
-        converted_content = li_open_pattern.sub(replace_li, content)
-        return (
-            '<ul style="margin-top:8px;margin-bottom:8px;padding-left:2em;color:black;list-style:none;">'
-            + converted_content
-            + "</ul>"
-        )
-
-    return ol_pattern.sub(replace_ol, html)
+    return list_pattern.sub(replace_list, html)
 
 
 def apply_wechat_inline_style(html: str) -> str:
