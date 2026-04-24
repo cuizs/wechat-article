@@ -203,7 +203,7 @@ def apply_wechat_inline_style(html: str) -> str:
         html = re.sub(pattern, repl, html, flags=re.IGNORECASE)
 
     wrapped = (
-        '<section style="font-size:16px;color:black;line-height:1.6;word-spacing:0;letter-spacing:0;word-break:break-word;word-wrap:break-word;text-align:justify;font-family:Optima-Regular,Optima,PingFangSC-light,PingFangTC-light,PingFang SC,Cambria,Cochin,Georgia,Times,Times New Roman,serif;margin-top:-10px;">'
+        '<section style="font-size:16px;color:black;line-height:1.6;word-spacing:0;letter-spacing:0;word-break:break-word;word-wrap:break-word;text-align:justify;font-family:Avenir, -apple-system-font, 微软雅黑, sans-serif;margin-top:-10px;">'
         + html
         + "</section>"
     )
