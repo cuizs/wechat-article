@@ -226,7 +226,6 @@ def main() -> None:
     title = extract_title(md_text)
     digest = extract_digest(md_text)
     content = markdown_to_wechat_html(md_text)
-    content_source_url = args.content_source_url or extract_first_url(md_text)
 
     payload = {
         "articles": [
@@ -235,7 +234,6 @@ def main() -> None:
                 "author": args.author,
                 "digest": digest,
                 "content": content,
-                "content_source_url": content_source_url,
                 "thumb_media_id": args.thumb_media_id,
                 "need_open_comment": args.need_open_comment,
                 "only_fans_can_comment": args.only_fans_can_comment,
