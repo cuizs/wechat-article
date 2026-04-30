@@ -18,7 +18,7 @@ Usage:
   ./scripts/run_weekly_wechat_pipeline.sh [--mode draft|publish] [--range YYYY-MM-DD,YYYY-MM-DD] [--task-extra "附加要求"] [--force-generate]
 
 Description:
-  1) 生成上周热点资讯 Markdown
+  1) 生成近7天热点资讯 Markdown
   2) 渲染专业资讯 HTML
   3) 写入微信公众号草稿箱
   4) (可选) 自动发布并轮询发布状态
@@ -114,10 +114,9 @@ if [[ -z "$DATE_RANGE" ]]; then
   DATE_RANGE="$("$PYTHON_BIN" - <<'PY'
 from datetime import date, timedelta
 today = date.today()
-this_monday = today - timedelta(days=today.weekday())
-last_monday = this_monday - timedelta(days=7)
-last_sunday = this_monday - timedelta(days=1)
-print(f"{last_monday.isoformat()},{last_sunday.isoformat()}")
+start = today - timedelta(days=7)
+end = today
+print(f"{start.isoformat()},{end.isoformat()}")
 PY
 )"
 fi

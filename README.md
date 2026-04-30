@@ -66,7 +66,7 @@ python index.py
 
 ```bash
 mkdir -p output
-python index.py --task "请基于web_search生成上一周热点资讯微信公众号文章，聚焦慢特病院外市场数字化增长、处方药院外营销与合规，严格按模板输出，直接输出markdown正文，不要使用代码块包裹" > output/week_report.md
+python index.py --task "请基于web_search生成近7天热点资讯微信公众号文章，聚焦慢特病院外市场数字化增长、处方药院外营销与合规，严格按模板输出，直接输出markdown正文，不要使用代码块包裹" > output/week_report.md
 ```
 
 再渲染为专业资讯风格 HTML：
@@ -89,7 +89,7 @@ python scripts/render_week_report.py --input output/week_report.md --output outp
 
 能力：
 
-- 自动确定上周日期范围（周一到周日）
+- 默认抓取当天往前推7天（含当天）的日期范围
 - 若当天已生成过文章，默认复用当天最新 `week_report.md`，跳过“重新生成文章”
 - 调用 Agent 检索并生成周报 Markdown
 - 渲染专业资讯风格 HTML
